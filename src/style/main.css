@@ -1,0 +1,39 @@
+::-webkit-scrollbar {
+    width: 6px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 7px;
+    background-color: #c4c4c5;
+    transition: all 0.3s;
+}
+
+::-webkit-scrollbar-track {
+    /* border-radius: 7px; */
+    background-color: #eeefef;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    /* height: 3000px; */
+    background-color: #f7f7f7;
+}
+
+/* 字体图标 */
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
