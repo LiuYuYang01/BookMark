@@ -3,7 +3,12 @@
   <div class="tool">
     <ul>
       <li>
-        <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px;">
+        <svg
+          data-v-65af85a3=""
+          aria-hidden="true"
+          class="icon"
+          style="font-size: 20px"
+        >
           <use data-v-65af85a3="" xlink:href="#icon-taiyang-copy-copy"></use>
         </svg>
       </li>
@@ -13,14 +18,17 @@
           <use data-v-65af85a3="" xlink:href="#icon-icon_yejianqingtian"></use>
         </svg>
       </li>
-      
+
       <li>
         <svg data-v-65af85a3="" aria-hidden="true" class="icon">
-          <use data-v-65af85a3="" xlink:href="#icon-biaoqiankuozhan_sousuo-354"></use>
+          <use
+            data-v-65af85a3=""
+            xlink:href="#icon-biaoqiankuozhan_sousuo-354"
+          ></use>
         </svg>
       </li>
 
-      <li>
+      <li @click="returnTop">
         <svg data-v-65af85a3="" aria-hidden="true" class="icon">
           <use data-v-65af85a3="" xlink:href="#icon-icon--fanhuidingbu"></use>
         </svg>
@@ -30,7 +38,30 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    returnTop() {
+      // 获取当前距离
+      let top = window.pageYOffset;
+
+      let time = setInterval(function () {
+        top -= 30;
+        window.scroll(0, top);
+
+        // 当前位置小于0时就当前位置等于0
+        if (top < 0) {
+          fn();
+        }
+      });
+
+      // 调用
+      function fn() {
+        window.scroll(0, 0);
+        clearInterval(time);
+      }
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>
