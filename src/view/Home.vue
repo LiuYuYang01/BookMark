@@ -6,6 +6,8 @@
     <Search></Search>
     <!-- 导航 -->
     <Content></Content>
+    <!-- 右侧工具栏 -->
+    <Tool></Tool>
   </div>
 </template>
 
@@ -13,8 +15,9 @@
 import Nav from "@/components/Nav";
 import Search from "@/components/Search";
 import Content from "@/components/Content";
+import Tool from "@/components/Tool";
 export default {
-  components: { Nav, Search, Content },
+  components: { Nav, Search, Content, Tool },
 };
 </script>
 

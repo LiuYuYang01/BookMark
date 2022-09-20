@@ -37,3 +37,7 @@ a{
     color: #333;
     text-decoration: none;
 }
+
+li{
+    list-style: none;
+}

@@ -117,8 +117,8 @@ export default {
       this.isShow = !Boolean(item);
     },
   },
-  // 过滤器
   filters: {
+    // 将名称过滤为首字 如：宇阳  过滤为：宇
     titleLogo(val) {
       // 取名称的第一位
       return val.charAt(0);
