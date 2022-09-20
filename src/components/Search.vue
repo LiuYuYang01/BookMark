@@ -1,12 +1,25 @@
 <template>
   <div class="search">
-    <input type="text" />
-    <i class="el-icon-search" :style="{ color: '#666' }"></i>
+    <input type="text" placeholder="搜你喜欢!" v-model="value"/>
+    <span @click="btn"><i class="el-icon-search" :style="{ color: '#666' }"></i></span>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+    data(){
+        return {
+            value:""
+        }
+    },
+    methods:{
+        btn(){
+            // location = `https://www.baidu.com/s?wd=${this.value}&cl=3`
+            location.href = `https://www.baidu.com/s?wd=${this.value}&cl=3`
+            window.open(`https://www.baidu.com/s?wd=${this.value}&cl=3`)
+        }
+    }
+};
 </script>
 
 <style lang="less" scoped>
@@ -30,11 +43,24 @@ export default {};
     outline: none;
   }
 
-  i {
+  span {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 0px;
     transform: translateY(-50%);
+    width: 60px;
+    height: 40px;
+    line-height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #e7f3ff;
+    }
   }
 }
 </style>
