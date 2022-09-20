@@ -45,16 +45,15 @@ export default {
       let top = window.pageYOffset;
 
       let time = setInterval(function () {
-        top -= 30;
+        top -= 10;
         window.scroll(0, top);
-
         // 当前位置小于0时就当前位置等于0
-        if (top < 0) {
+        if (top <= 0) {
           fn();
         }
       });
 
-      // 调用
+      // 调用 停止滚动
       function fn() {
         window.scroll(0, 0);
         clearInterval(time);
