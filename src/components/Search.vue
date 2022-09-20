@@ -59,6 +59,7 @@ export default {
     position: relative;
     height: 380px;
     background-color: #fff;
+    box-shadow: 0 1px 3px rgb(107 159 175 / 20%);
 
     // 信息
     .text {

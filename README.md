@@ -1,24 +1,14 @@
-# mark
+# BookMark项目介绍
 
-## Project setup
-```
-yarn install
-```
+![项目介绍](C:\Users\33111\Desktop\bookmark\image\3870497877.png)
 
-### Compiles and hot-reloads for development
-```
+
+
+**运行项目**
+
+```bash
+npm serve
+// or
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

@@ -164,6 +164,27 @@ export const list = {
                     image: "https://s1.ax1x.com/2022/09/18/xpv5NT.png",
                     info: "ECharts 是一款基于JavaScript的数据可视化图表库，提供直观，生动，可交互，可个性化定制的数据可视化图表。",
                     url: "https://echarts.apache.org/zh/index.html"
+                },
+                {
+                    id: 9,
+                    title: "Animation.css",
+                    image: "https://s1.ax1x.com/2022/09/19/x9vULn.png",
+                    info: "Animation.css是一个现成的跨浏览器动画库,能够帮助开发者快速的实现一些很炫酷的动画效果",
+                    url: "https://animate.style/"
+                },
+                {
+                    id: 10,
+                    title: "Prism.js",
+                    image: false,
+                    info: "Prism.js 是一款轻量级、可扩展的语法高亮片，在构建时充分考虑了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。",
+                    url: "https://prismjs.com/download.html"
+                },
+                {
+                    id: 11,
+                    title: "Highlight.js",
+                    image: false,
+                    info: "Highlight.js 是一个可以给pre标签中的代码高亮的插件，它不依赖于第三方js库，支持上百种语言高亮和几十种样式风格，它可以自动检测语言，完美兼容各种框架。",
+                    url: "https://highlightjs.org/"
                 }
             ]
         },

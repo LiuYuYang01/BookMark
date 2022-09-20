@@ -15,12 +15,15 @@
         <!-- 导航栏 -->
         <div class="box">
           <div class="nav" v-for="obj in item.data" :key="obj.id">
-            <a :href="obj.url">
+            <a target="_blank" :href="obj.url">
               <!-- 导航名称 -->
               <div class="title">
                 <div>
+                  <!-- 如果有图片logo就显示图片logo，如果没有就显示名称首位 -->
                   <!-- 导航logo -->
-                  <img :src="obj.image" alt="" />
+                  <img :src="obj.image" alt="" v-if="Boolean(obj.image)" />
+                  <!-- 将名称拿到首位 -->
+                  <div class="logo" v-else>{{ obj.title | titleLogo }}</div>
                   <p>{{ obj.title }}</p>
                 </div>
 
@@ -51,7 +54,7 @@
         <!-- 导航栏 -->
         <div class="box">
           <div class="nav" v-for="obj in item.data" :key="obj.id">
-            <a :href="obj.url">
+            <a target="_blank" :href="obj.url">
               <!-- 导航名称 -->
               <div class="title">
                 <div>
@@ -112,6 +115,13 @@ export default {
       // 查询当前分类有没有内容，返回一个布尔值
       const item = this.list.find((item) => item.cid === id);
       this.isShow = !Boolean(item);
+    },
+  },
+  // 过滤器
+  filters: {
+    titleLogo(val) {
+      // 取名称的第一位
+      return val.charAt(0);
     },
   },
 };
@@ -193,6 +203,19 @@ export default {
             height: 50px;
             margin-right: 15px;
             border-radius: 50px;
+          }
+
+          .logo {
+            display: block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            margin-right: 15px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #5ccdf3 0%, #2790fd 100%);
+            font-size: 25px;
+            color: #fff;
+            text-align: center;
           }
 
           p {
