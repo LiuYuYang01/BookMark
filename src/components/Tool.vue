@@ -40,6 +40,16 @@ export default {
     return {
       root: document.querySelector(":root"),
       icon: "#icon-taiyang-copy-copy",
+      template: {
+        body: "#f7f7f7",
+        body_a: "#fff",
+        a: "#333",
+        nav_hover: "#ecf5ff",
+        nav_a: "#333",
+        nav_b: "#666",
+        nav_select_hover: "#fbfbfb",
+        nav_show_border: "#DCDFE6",
+      },
     };
   },
   methods: {
@@ -49,27 +59,40 @@ export default {
         // 切换到昼夜
         this.icon = "#icon-icon_yejianqingtian";
 
-        this.root.style.setProperty("--body", "#151617");
-        this.root.style.setProperty("--body_a", "#1d1f20");
-        this.root.style.setProperty("--a", "#fff");
-        this.root.style.setProperty("--nav_hover", "#2d3132");
-        this.root.style.setProperty("--nav_a", "#a4a8b4");
-        this.root.style.setProperty("--nav_b", "#a4a8b4");
-        this.root.style.setProperty("--nav_select_hover", "#292a2c");
-        this.root.style.setProperty("--nav_show_border", "#292a2c");
+        this.template = {
+          body: "#151617",
+          body_a: "#1d1f20",
+          a: "#fff",
+          nav_hover: "#2d3132",
+          nav_a: "#a4a8b4",
+          nav_b: "#a4a8b4",
+          nav_select_hover: "#292a2c",
+          nav_show_border: "#292a2c",
+        };
       } else {
         // 切换到白天
         this.icon = "#icon-taiyang-copy-copy";
 
-        this.root.style.setProperty("--body", "#f7f7f7");
-        this.root.style.setProperty("--body_a", "#fff");
-        this.root.style.setProperty("--a", "#333");
-        this.root.style.setProperty("--nav_hover", "#ecf5ff");
-        this.root.style.setProperty("--nav_a", "#333");
-        this.root.style.setProperty("--nav_b", "#666");
-        this.root.style.setProperty("--nav_select_hover", "#fbfbfb");
-        this.root.style.setProperty("--nav_show_border", "#DCDFE6");
+        this.template = {
+          body: "#f7f7f7",
+          body_a: "#fff",
+          a: "#333",
+          nav_hover: "#ecf5ff",
+          nav_a: "#333",
+          nav_b: "#666",
+          nav_select_hover: "#fbfbfb",
+          nav_show_border: "#DCDFE6",
+        };
       }
+
+      this.root.style.setProperty("--body", this.template.body);
+      this.root.style.setProperty("--body_a", this.template.body_a);
+      this.root.style.setProperty("--a", this.template.a);
+      this.root.style.setProperty("--nav_hover", this.template.nav_hover);
+      this.root.style.setProperty("--nav_a", this.template.nav_a);
+      this.root.style.setProperty("--nav_b", this.template.nav_b);
+      this.root.style.setProperty("--nav_select_hover", this.template.select_hover);
+      this.root.style.setProperty("--nav_show_border", this.template.nav_show_border);
     },
     // 返回顶部
     returnTop() {

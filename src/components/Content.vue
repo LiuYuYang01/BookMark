@@ -194,7 +194,6 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transition: all 0.3s;
 
         div {
           display: flex;
@@ -219,11 +218,13 @@ export default {
             font-size: 25px;
             color: #fff;
             text-align: center;
+            transition: all 0.3s;
           }
 
           p {
             position: relative;
             color: var(--a);
+            transition: all 0.3s;
 
             &::after {
               content: "";
@@ -258,7 +259,7 @@ export default {
           font-size: 15px;
           color: var(--nav_b);
           line-height: 20px;
-          font-family: 宋体;
+          font-family: "宋体";
           margin-top: 10px;
         }
       }
