@@ -2,10 +2,7 @@
   <!-- 侧边分类栏 -->
   <div class="nav" :style="{ width: navWidth }">
     <el-col :span="3">
-      <el-menu
-        class="el-menu-vertical-demo"
-        :style="{ width: navWidth, display: navDisplay }"
-      >
+      <el-menu class="el-menu-vertical-demo" :style="{ width: navWidth }">
         <div v-for="item in navList" :key="item.id">
           <!-- 如果有二级分类就显示下拉箭头 -->
           <el-submenu :index="item.index" v-if="item.twoNav.length">
@@ -67,7 +64,6 @@ export default {
     return {
       navList: [],
       navWidth: "201px",
-      navDisplay: "block",
       showLeft: "210px",
       isIcon: "el-icon-d-arrow-left", //默认展开
     };
@@ -84,14 +80,11 @@ export default {
         this.isIcon = "el-icon-d-arrow-right";
         // nav宽度改为0
         this.navWidth = 0;
-        // 然后再隐藏
-        this.navDisplay = "none";
         // 收起按钮位置调整
         this.showLeft = "20px";
       } else {
         this.isIcon = "el-icon-d-arrow-left";
         this.navWidth = "201px";
-        this.navDisplay = "block";
         this.showLeft = "210px";
       }
     },
@@ -100,12 +93,21 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.el-submenu /deep/ .el-submenu__title:hover {
+  background-color: var(--nav_hover) !important;
+}
+
+.el-menu-item:hover {
+  background-color: var(--nav_hover) !important;
+}
+
 .nav {
   height: 100%;
   position: fixed;
   width: 201px;
-  background-color: #fff;
+  background-color: var(--body_a);
   box-shadow: 0 1px 3px rgb(107 159 175 / 20%);
+  transition: all 0.3s;
   z-index: 2;
 
   svg {
@@ -113,15 +115,64 @@ export default {
     font-size: 18px;
   }
 
-  .el-menu-vertical-demo {
-    width: 200px;
+  // 删除分类小标题多余部分
+  .el-submenu /deep/ .el-menu-item-group__title {
+    display: none;
   }
 
+  // 分类栏
+  .el-menu-vertical-demo {
+    overflow: hidden;
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    background-color: var(--body-a);
+    transition: all 0.3s;
+  }
+
+  // 取消导航边框
+  .el-menu {
+    border: none;
+  }
+
+  // 一级分类颜色
+  .el-submenu__title span,
+  .el-menu-item span {
+    color: var(--a);
+    transition: all 0.3s;
+  }
+
+  // 二级分类文字颜色
+  .el-menu-item {
+    color: var(--nav_a);
+    transition: all 0.3s;
+  }
+
+  // 二级分类背景颜色
+  .el-menu-item-group {
+    background-color: var(--nav_select_hover);
+    transition: all 0.3s;
+  }
+
+  // 展开 收起按钮
   .show {
     position: absolute;
     top: 50%;
     left: 210px;
     transform: translateY(-50%);
+    transition: all 0.3s ease 0s;
+  }
+
+  // 展开 收起按钮颜色
+  .el-button.is-circle{
+    background-color: var(--body_a);
+    transition: all 0.3s;
+  }
+
+  // 展开 收起边框颜色
+  .el-button{
+    border: 1px solid var(--nav_show_border);
+    transition: all 0.3s;
   }
 }
 </style>

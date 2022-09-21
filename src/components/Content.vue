@@ -148,10 +148,11 @@ export default {
       padding: 0 15px;
       margin-bottom: 10px;
       border-radius: 5px;
-      border: 1px #dfdfdf solid;
-      background-color: #fff;
-      color: #333;
+      border: 1px solid var(--nav_show_border);
+      background-color: var(--body_a);
+      color: var(--a);
       font-weight: 400;
+      transition: all 0.3s;
 
       svg {
         margin-right: 10px;
@@ -170,8 +171,8 @@ export default {
       margin: 0 16px 10px 0;
       box-sizing: border-box;
       border-radius: 5px;
-      border: 1px #dfdfdf solid;
-      background-color: #fff;
+      border: 1px solid var(--nav_show_border);
+      background-color: var(--body_a);
       transition: all 0.3s;
       cursor: pointer;
 
@@ -193,6 +194,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: all 0.3s;
 
         div {
           display: flex;
@@ -203,6 +205,7 @@ export default {
             height: 50px;
             margin-right: 15px;
             border-radius: 50px;
+            transition: all 0.3s;
           }
 
           .logo {
@@ -220,6 +223,7 @@ export default {
 
           p {
             position: relative;
+            color: var(--a);
 
             &::after {
               content: "";
@@ -252,7 +256,7 @@ export default {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
           font-size: 15px;
-          color: #666;
+          color: var(--nav_b);
           line-height: 20px;
           font-family: 宋体;
           margin-top: 10px;

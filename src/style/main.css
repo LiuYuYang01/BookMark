@@ -21,7 +21,8 @@
 
 body {
     /* height: 3000px; */
-    background-color: #f7f7f7;
+    background-color: var(--body);
+    transition: all 0.3s;
 }
 
 /* 字体图标 */
@@ -33,11 +34,37 @@ body {
     overflow: hidden;
 }
 
-a{
+a {
     color: #333;
     text-decoration: none;
 }
 
-li{
+li {
     list-style: none;
+}
+
+
+
+/* 白天 昼夜切换 */
+:root {
+    /* 白天 */
+    --body: #f7f7f7;
+    --body_a: #fff;
+    --a: #333;
+    --nav_hover: #ecf5ff;
+    --nav_a: #333;
+    --nav_b:#666;
+    --nav_select_hover: #fbfbfb;
+    --nav_show_border:#DCDFE6;
+
+    /* 黑夜
+    --body: #151617;
+    --body_a:#1d1f20;
+    --a:#fff;
+    --nav_hover:#2d3132;
+    --nav_a:#a4a8b4;
+    --nav_b:#a4a8b4;
+    --nav_select_hover:#a4a8b4;
+    --nav_show_border:#292a2c;
+    */
 }

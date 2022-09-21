@@ -14,8 +14,6 @@ export default {
     },
     methods:{
         btn(){
-            // location = `https://www.baidu.com/s?wd=${this.value}&cl=3`
-            location.href = `https://www.baidu.com/s?wd=${this.value}&cl=3`
             window.open(`https://www.baidu.com/s?wd=${this.value}&cl=3`)
         }
     }

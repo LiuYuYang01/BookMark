@@ -2,23 +2,19 @@
   <!-- 右侧工具栏 -->
   <div class="tool">
     <ul>
-      <li>
+      <!-- 白天 昼夜切换 -->
+      <li @click="isDayAndNight">
         <svg
           data-v-65af85a3=""
           aria-hidden="true"
           class="icon"
           style="font-size: 20px"
         >
-          <use data-v-65af85a3="" xlink:href="#icon-taiyang-copy-copy"></use>
+          <use data-v-65af85a3="" :xlink:href="icon"></use>
         </svg>
       </li>
 
-      <li>
-        <svg data-v-65af85a3="" aria-hidden="true" class="icon">
-          <use data-v-65af85a3="" xlink:href="#icon-icon_yejianqingtian"></use>
-        </svg>
-      </li>
-
+      <!-- 搜索 -->
       <li>
         <svg data-v-65af85a3="" aria-hidden="true" class="icon">
           <use
@@ -28,6 +24,7 @@
         </svg>
       </li>
 
+      <!-- 返回顶部 -->
       <li @click="returnTop">
         <svg data-v-65af85a3="" aria-hidden="true" class="icon">
           <use data-v-65af85a3="" xlink:href="#icon-icon--fanhuidingbu"></use>
@@ -39,7 +36,42 @@
 
 <script>
 export default {
+  data() {
+    return {
+      root: document.querySelector(":root"),
+      icon: "#icon-taiyang-copy-copy",
+    };
+  },
   methods: {
+    //  昼夜切换
+    isDayAndNight() {
+      if (this.icon === "#icon-taiyang-copy-copy") {
+        // 切换到昼夜
+        this.icon = "#icon-icon_yejianqingtian";
+
+        this.root.style.setProperty("--body", "#151617");
+        this.root.style.setProperty("--body_a", "#1d1f20");
+        this.root.style.setProperty("--a", "#fff");
+        this.root.style.setProperty("--nav_hover", "#2d3132");
+        this.root.style.setProperty("--nav_a", "#a4a8b4");
+        this.root.style.setProperty("--nav_b", "#a4a8b4");
+        this.root.style.setProperty("--nav_select_hover", "#292a2c");
+        this.root.style.setProperty("--nav_show_border", "#292a2c");
+      } else {
+        // 切换到白天
+        this.icon = "#icon-taiyang-copy-copy";
+
+        this.root.style.setProperty("--body", "#f7f7f7");
+        this.root.style.setProperty("--body_a", "#fff");
+        this.root.style.setProperty("--a", "#333");
+        this.root.style.setProperty("--nav_hover", "#ecf5ff");
+        this.root.style.setProperty("--nav_a", "#333");
+        this.root.style.setProperty("--nav_b", "#666");
+        this.root.style.setProperty("--nav_select_hover", "#fbfbfb");
+        this.root.style.setProperty("--nav_show_border", "#DCDFE6");
+      }
+    },
+    // 返回顶部
     returnTop() {
       // 获取当前距离
       let top = window.pageYOffset;
@@ -80,6 +112,9 @@ export default {
       box-shadow: 0 1px 3px rgb(107 159 175 / 20%);
       text-align: center;
       font-size: 18px;
+      // 不允许复制
+      user-select: none;
+      // 鼠标变小手
       cursor: pointer;
     }
   }
