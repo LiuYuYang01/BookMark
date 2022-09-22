@@ -36,30 +36,26 @@
 
 <script>
 export default {
+  created() {
+    this.theme()
+  },
   data() {
     return {
       root: document.querySelector(":root"),
       icon: "#icon-taiyang-copy-copy",
-      template: {
-        body: "#f7f7f7",
-        body_a: "#fff",
-        a: "#333",
-        nav_hover: "#ecf5ff",
-        nav_a: "#333",
-        nav_b: "#666",
-        nav_select_hover: "#fbfbfb",
-        nav_show_border: "#DCDFE6",
-      },
+      template: {},
     };
   },
   methods: {
     //  昼夜切换
     isDayAndNight() {
       if (this.icon === "#icon-taiyang-copy-copy") {
-        // 切换到昼夜
+        // 切换到昼夜模式
         this.icon = "#icon-icon_yejianqingtian";
 
+        // 昼夜主题
         this.template = {
+          state:"#icon-icon_yejianqingtian",
           body: "#151617",
           body_a: "#1d1f20",
           a: "#fff",
@@ -69,11 +65,17 @@ export default {
           nav_select_hover: "#292a2c",
           nav_show_border: "#292a2c",
         };
+
+        // 持久化到本地存储
+        localStorage.setItem("theme", JSON.stringify(this.template));
+        console.log('2',JSON.parse(localStorage.getItem("theme")) || {});
       } else {
-        // 切换到白天
+        // 切换到太阳模式
         this.icon = "#icon-taiyang-copy-copy";
 
+        // 太阳主题
         this.template = {
+          state:"#icon-taiyang-copy-copy",
           body: "#f7f7f7",
           body_a: "#fff",
           a: "#333",
@@ -81,18 +83,40 @@ export default {
           nav_a: "#333",
           nav_b: "#666",
           nav_select_hover: "#fbfbfb",
-          nav_show_border: "#DCDFE6",
+          nav_show_border: "#DCDFE6"
         };
+
+        localStorage.setItem("theme", JSON.stringify(this.template));
+        console.log('3',JSON.parse(localStorage.getItem("theme")) || {});
       }
 
+      // 主题切换
       this.root.style.setProperty("--body", this.template.body);
       this.root.style.setProperty("--body_a", this.template.body_a);
       this.root.style.setProperty("--a", this.template.a);
       this.root.style.setProperty("--nav_hover", this.template.nav_hover);
       this.root.style.setProperty("--nav_a", this.template.nav_a);
       this.root.style.setProperty("--nav_b", this.template.nav_b);
-      this.root.style.setProperty("--nav_select_hover", this.template.select_hover);
-      this.root.style.setProperty("--nav_show_border", this.template.nav_show_border);
+      this.root.style.setProperty("--nav_select_hover",this.template.nav_select_hover);
+      this.root.style.setProperty("--nav_show_border",this.template.nav_show_border);
+    },
+    // 记录上一次是白天 还是 黑夜状态
+    theme(){
+      this.template = JSON.parse(localStorage.getItem("theme")) || {};
+  
+      // 记录上一次是白天 还是 黑夜状态
+      if(this.template.state){
+        this.icon = this.template.state
+
+        this.root.style.setProperty("--body", this.template.body);
+        this.root.style.setProperty("--body_a", this.template.body_a);
+        this.root.style.setProperty("--a", this.template.a);
+        this.root.style.setProperty("--nav_hover", this.template.nav_hover);
+        this.root.style.setProperty("--nav_a", this.template.nav_a);
+        this.root.style.setProperty("--nav_b", this.template.nav_b);
+        this.root.style.setProperty("--nav_select_hover",this.template.nav_select_hover);
+        this.root.style.setProperty("--nav_show_border",this.template.nav_show_border);
+      }
     },
     // 返回顶部
     returnTop() {
@@ -114,7 +138,7 @@ export default {
         clearInterval(time);
       }
     },
-  },
+  }
 };
 </script>
 

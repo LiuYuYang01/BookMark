@@ -93,14 +93,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-submenu /deep/ .el-submenu__title:hover {
-  background-color: var(--nav_hover) !important;
-}
-
-.el-menu-item:hover {
-  background-color: var(--nav_hover) !important;
-}
-
 .nav {
   height: 100%;
   position: fixed;
@@ -154,6 +146,16 @@ export default {
     transition: all 0.3s;
   }
 
+  // 鼠标经过一级分类修改背景颜色
+  .el-submenu /deep/ .el-submenu__title:hover {
+    background-color: var(--nav_hover) !important;
+  }
+
+  // 鼠标经过二级级分类修改背景颜色
+  .el-menu-item:hover {
+    background-color: var(--nav_hover) !important;
+  }
+
   // 展开 收起按钮
   .show {
     position: absolute;
@@ -164,13 +166,13 @@ export default {
   }
 
   // 展开 收起按钮颜色
-  .el-button.is-circle{
+  .el-button.is-circle {
     background-color: var(--body_a);
     transition: all 0.3s;
   }
 
   // 展开 收起边框颜色
-  .el-button{
+  .el-button {
     border: 1px solid var(--nav_show_border);
     transition: all 0.3s;
   }
