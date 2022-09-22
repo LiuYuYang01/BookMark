@@ -10,10 +10,18 @@
             <use :xlink:href="item.icon"></use>
           </svg>
           {{ item.title }}
+
+          <!-- 导航展开 隐藏 切换按钮 -->
+          <div class="item_show" @click="isItem_Show(item.id)">
+            <svg class="icon" aria-hidden="true">
+              <use :xlink:href="item.iconShow"></use>
+            </svg>
+          </div>
         </h3>
 
         <!-- 导航栏 -->
-        <div class="box">
+        <!-- 如果为展开状态就显示，反之隐藏 -->
+        <div class="box" v-show="item.iconShow === '#icon-zhankai1'">
           <div class="nav" v-for="obj in item.data" :key="obj.id">
             <a target="_blank" :href="obj.url">
               <!-- 导航名称 -->
@@ -58,8 +66,11 @@
               <!-- 导航名称 -->
               <div class="title">
                 <div>
+                  <!-- 如果有图片logo就显示图片logo，如果没有就显示名称首位 -->
                   <!-- 导航logo -->
-                  <img :src="obj.image" alt="" />
+                  <img :src="obj.image" alt="" v-if="Boolean(obj.image)" />
+                  <!-- 将名称拿到首位 -->
+                  <div class="logo" v-else>{{ obj.title | titleLogo }}</div>
                   <p>{{ obj.title }}</p>
                 </div>
 
@@ -82,20 +93,13 @@
     <div class="isShow" v-if="isShow">
       <img src="../assets/none.png" alt="" />
     </div>
-
-    <!-- 没有内容就不显示底部 -->
-    <div v-else>
-      <!-- <Footer></Footer> -->
-    </div>
   </div>
 </template>
 
 <script>
 import { listAPI } from "@/api/main";
 import bus from "@/eventBus/eventBus";
-import Footer from "@/components/Footer.vue";
 export default {
-  components: { Footer },
   created() {
     // 接收Nav.vue组件传递过来的数据
     bus.$on("cateId", (id) => {
@@ -109,6 +113,15 @@ export default {
       cid: 0,
       isShow: null,
     };
+  },
+  methods: {
+    isItem_Show(id) {
+      // 查询被点击的那一项
+      const item = this.list.find((item) => item.id === id);
+
+      // 如果为展开就变成收起 反之收起就变成展开
+      item.iconShow === "#icon-zhankai1" ? item.iconShow = "#icon-shouqi1" :  item.iconShow = "#icon-zhankai1"
+    },
   },
   watch: {
     cid(id) {
@@ -137,11 +150,6 @@ export default {
   .item {
     margin-bottom: 10px;
 
-    // 为什么这里匹配不到最后一项
-    // &:last-of-type {
-    //   margin-bottom: 100px !important;
-    // }
-
     .nav_title {
       height: 50px;
       line-height: 50px;
@@ -153,6 +161,14 @@ export default {
       color: var(--a);
       font-weight: 400;
       transition: all 0.3s;
+
+      .item_show {
+        float: right;
+        width: 50px;
+        text-align: center;
+        user-select: none;
+        cursor: pointer;
+      }
 
       svg {
         margin-right: 10px;

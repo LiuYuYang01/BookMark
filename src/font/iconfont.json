@@ -6,18 +6,39 @@
   "description": "一个主页 整个世界！",
   "glyphs": [
     {
+      "icon_id": "11607863",
+      "name": "展开",
+      "font_class": "shouqi1",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "31320731",
+      "name": "展开",
+      "font_class": "zhankai2",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "31990807",
+      "name": "展开-copy",
+      "font_class": "shouqi2",
+      "unicode": "ecb8",
+      "unicode_decimal": 60600
+    },
+    {
+      "icon_id": "31990836",
+      "name": "展开-copy",
+      "font_class": "zhankai1",
+      "unicode": "ecb9",
+      "unicode_decimal": 60601
+    },
+    {
       "icon_id": "16401860",
       "name": "搜索",
       "font_class": "biaoqiankuozhan_sousuo-354",
       "unicode": "ebd3",
       "unicode_decimal": 60371
-    },
-    {
-      "icon_id": "17149661",
-      "name": "搜索",
-      "font_class": "sousuo",
-      "unicode": "ec55",
-      "unicode_decimal": 60501
     },
     {
       "icon_id": "31933595",

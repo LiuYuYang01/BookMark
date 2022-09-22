@@ -3,33 +3,32 @@
   <div class="tool">
     <ul>
       <!-- 白天 昼夜切换 -->
-      <li @click="isDayAndNight">
-        <svg
-          data-v-65af85a3=""
-          aria-hidden="true"
-          class="icon"
-          style="font-size: 20px"
-        >
-          <use data-v-65af85a3="" :xlink:href="icon"></use>
-        </svg>
-      </li>
+      <el-tooltip class="item" effect="dark" content="太阳 昼夜模式切换" placement="left">
+        <li @click="isDayAndNight">
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
+            <use data-v-65af85a3="" :xlink:href="icon"></use>
+          </svg>
+        </li>
+      </el-tooltip>
+      
 
       <!-- 搜索 -->
-      <li>
-        <svg data-v-65af85a3="" aria-hidden="true" class="icon">
-          <use
-            data-v-65af85a3=""
-            xlink:href="#icon-biaoqiankuozhan_sousuo-354"
-          ></use>
-        </svg>
-      </li>
+      <el-tooltip class="item" effect="dark" content="搜你喜欢" placement="left">
+        <li>
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon">
+            <use data-v-65af85a3="" xlink:href="#icon-biaoqiankuozhan_sousuo-354" ></use>
+          </svg>
+        </li>
+      </el-tooltip>
 
       <!-- 返回顶部 -->
-      <li @click="returnTop">
-        <svg data-v-65af85a3="" aria-hidden="true" class="icon">
-          <use data-v-65af85a3="" xlink:href="#icon-icon--fanhuidingbu"></use>
-        </svg>
-      </li>
+      <el-tooltip class="item" effect="dark" content="回到顶部" placement="left">
+        <li @click="returnTop">
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon">
+            <use data-v-65af85a3="" xlink:href="#icon-icon--fanhuidingbu"></use>
+          </svg>
+        </li>
+      </el-tooltip>
     </ul>
   </div>
 </template>

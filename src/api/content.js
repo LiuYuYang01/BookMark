@@ -7,6 +7,7 @@ export const list = {
             cid:"1-1",
             title: "学无止境",
             icon:"#icon-wodexuexi",
+            iconShow:"#icon-zhankai1",
             data: [
                 {
                     id: 1,
@@ -43,6 +44,7 @@ export const list = {
             cid:"1-2",
             title: "技术博客",
             icon:"#icon-wenzhang",
+            iconShow:"#icon-zhankai1",
             data: [
                 {
                     id: 1,
@@ -79,6 +81,7 @@ export const list = {
             cid:"1-3",
             title: "UI组件库",
             icon:"#icon-zujian-xingzhuang",
+            iconShow:"#icon-zhankai1",
             data: [
                 {
                     id: 1,
@@ -108,6 +111,7 @@ export const list = {
             cid:"1-4",
             title: "前端插件",
             icon:"#icon-kefuchajian",
+            iconShow:"#icon-zhankai1",
             data: [
                 {
                     id: 1,
@@ -193,6 +197,7 @@ export const list = {
             cid:"1-5",
             title: "前端框架",
             icon:"#icon-zuzhijiagou",
+            iconShow:"#icon-zhankai1",
             data: [
                 {
                     id: 1,
