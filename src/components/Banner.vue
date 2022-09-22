@@ -41,7 +41,7 @@ export default {
       qq: 3311118881,
     };
   },
-  components:{Search}
+  components: { Search },
 };
 </script>
 
@@ -57,11 +57,13 @@ export default {
     // 信息
     .text {
       position: absolute;
-      left: 55%;
+      left: 50%;
       transform: translateX(-50%);
       margin-top: 45px;
       color: #fff;
       text-align: center;
+      padding-left: 200px;
+      transition: all 0.3s;
 
       h2 {
         font-size: 45px;

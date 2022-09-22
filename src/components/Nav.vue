@@ -73,7 +73,12 @@ export default {
       // 向Content.vue组件传递数据
       bus.$emit("cateId", id);
     },
+    // 点击展开 收起左侧分类栏
     showBtn() {
+      const contentLeft =  document.querySelector('.content')
+      const toolLeft =  document.querySelector('.tool')
+      const searchLeft =  document.querySelector('.search')
+      const bannerLeft =  document.querySelector('.banner .box .text')
       // 点击收起 再次点击则展开
       if (this.isIcon === "el-icon-d-arrow-left") {
         // 切换到收起模式
@@ -82,10 +87,22 @@ export default {
         this.navWidth = 0;
         // 收起按钮位置调整
         this.showLeft = "20px";
+
+        // 分类栏如果被收起 就让页面整体往左边来点
+        bannerLeft.style.paddingLeft = "0"
+        searchLeft.style.paddingLeft = "0"
+        contentLeft.style.padding = "0 10px 0 0";
+        toolLeft.style.right = "90px";
       } else {
         this.isIcon = "el-icon-d-arrow-left";
         this.navWidth = "201px";
         this.showLeft = "210px";
+
+        // 分类栏如果被展开 就让页面整体还原
+        bannerLeft.style.paddingLeft = "200px"
+        searchLeft.style.paddingLeft = "200px"
+        contentLeft.style.padding = "0 10px 0 210px"
+        toolLeft.style.right = "40px";
       }
     },
   },

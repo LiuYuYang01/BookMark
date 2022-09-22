@@ -11,12 +11,14 @@
           </svg>
           {{ item.title }}
 
-          <!-- 导航展开 隐藏 切换按钮 -->
-          <div class="item_show" @click="isItem_Show(item.id)">
-            <svg class="icon" aria-hidden="true">
-              <use :xlink:href="item.iconShow"></use>
-            </svg>
-          </div>
+          <!-- 导航展开 收起 切换按钮 -->
+          <el-tooltip class="item" effect="dark" content="展开 收起" placement="left">
+            <div class="item_show" @click="isItem_Show(item.id)">
+              <svg class="icon" aria-hidden="true">
+                <use :xlink:href="item.iconShow"></use>
+              </svg>
+            </div>
+          </el-tooltip>
         </h3>
 
         <!-- 导航栏 -->
@@ -29,7 +31,7 @@
                 <div>
                   <!-- 如果有图片logo就显示图片logo，如果没有就显示名称首位 -->
                   <!-- 导航logo -->
-                  <img :src="obj.image" alt="" v-if="Boolean(obj.image)" />
+                  <img :src="obj.image" alt="" v-if="obj.image != ''" />
                   <!-- 将名称拿到首位 -->
                   <div class="logo" v-else>{{ obj.title | titleLogo }}</div>
                   <p>{{ obj.title }}</p>
@@ -146,6 +148,7 @@ export default {
   padding: 0 10px 0 210px;
   margin: 0 auto;
   margin-top: 10px;
+  transition: all 0.3s;
 
   .item {
     margin-bottom: 10px;

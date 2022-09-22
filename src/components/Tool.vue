@@ -146,6 +146,7 @@ export default {
   position: fixed;
   top: 60%;
   right: 40px;
+  transition: all 0.3s;
 
   ul {
     li {

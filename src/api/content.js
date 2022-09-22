@@ -179,16 +179,58 @@ export const list = {
                 {
                     id: 10,
                     title: "Prism.js",
-                    image: false,
-                    info: "Prism.js 是一款轻量级、可扩展的语法高亮片，在构建时充分考虑了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。",
+                    image: "",
+                    info: "Prism.js 是一个轻量级、可扩展的语法高亮片，在构建时充分考虑了现代 Web 标准。它被用于数百万个网站，包括您每天访问的一些网站。",
                     url: "https://prismjs.com/download.html"
                 },
                 {
                     id: 11,
                     title: "Highlight.js",
-                    image: false,
+                    image: "",
                     info: "Highlight.js 是一个可以给pre标签中的代码高亮的插件，它不依赖于第三方js库，支持上百种语言高亮和几十种样式风格，它可以自动检测语言，完美兼容各种框架。",
                     url: "https://highlightjs.org/"
+                },
+                {
+                    id: 12,
+                    title: "Anime.js",
+                    image: "",
+                    info: "Anime.js 是一个一个强大、轻量级的制作JavaScript动画的库",
+                    url: "https://www.animejs.cn/"
+                },
+                {
+                    id: 13,
+                    title: "Hover.css",
+                    image: "",
+                    info: "Hover.css 是一个CSS3驱动的悬停效果的集合，可应用于链接，按钮，徽标，SVG，特色图像等。轻松应用于您自己的元素，修改或仅用于灵感。",
+                    url: "http://ianlunn.github.io/Hover/"
+                },
+                {
+                    id: 14,
+                    title: "ScrollReveal.js",
+                    image: "https://s1.ax1x.com/2022/09/22/xFobPe.png",
+                    info: "scrollReveal.js 是一个页面滚动显示动画的 JavaScript库, 能让页面更加有趣, 更吸引用户眼球.",
+                    url: "https://scrollrevealjs.org/"
+                },
+                {
+                    id: 15,
+                    title: "Fullpage.js",
+                    image: "https://s1.ax1x.com/2022/09/22/xFTVrq.png",
+                    info: "Fullpage.js 是一个基于 jQuery 的插件,它能够很方便、很轻松的制作出全屏网站。如今我们经常能见到全屏网站，尤其是国外网站。这些网站用几幅很大的图片或色块做背景，再添加一些简单的内容，显得格外的高端大气上档次。",
+                    url: "https://alvarotrigo.com/fullPage/zh/"
+                },
+                {
+                    id: 16,
+                    title: "Notyf.js",
+                    image: "https://s1.ax1x.com/2022/09/22/xFTyLt.png",
+                    info: "Notyf.js 是一个简约的、响应迅速的、普通的 JavaScript 库，用于显示消息通知的插件",
+                    url: "https://carlosroso.com/notyf/"
+                },
+                {
+                    id: 17,
+                    title: "Lodash.js",
+                    image: "https://s1.ax1x.com/2022/09/22/xFTXYF.png",
+                    info: "Lodash 是一个一致性、模块化、高性能的 JavaScript 实用工具库。",
+                    url: "https://www.lodashjs.com/"
                 }
             ]
         },

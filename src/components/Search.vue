@@ -29,6 +29,7 @@ export default {
   width: 600px;
   height: 40px;
   padding-left: 200px;
+  transition: all 0.3s;
 
   input {
     width: 100%;
