@@ -1,7 +1,8 @@
 <template>
   <div class="banner">
     <!-- box -->
-    <div class="box">
+    <!-- <div class="box" :style="{backgroundImage:`linear-gradient(${deg}deg, #21D4FD 0%, #B721FF 100%)`}"> -->
+    <div class="box" :style="{backgroundImage:`linear-gradient(${deg}deg, #6284FF, #9599E2, #4d87fd, #FFBBEC)`}">
       <!-- 信息 -->
       <div class="text">
         <h2>BookMark</h2>
@@ -10,24 +11,6 @@
 
       <!-- 搜索框 -->
       <Search></Search>
-
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#0099ff"
-          fill-opacity="1"
-          d="M0,320L1440,192L1440,0L0,0Z"
-        ></path>
-      </svg>
-
-      <!-- 管理员头像 -->
-      <div class="avatar">
-        <el-avatar
-          shape="square"
-          :src="`https://q2.qlogo.cn/headimg_dl?dst_uin=${qq}&spec=100`"
-        ></el-avatar>
-        <span>管理员：<br /><i style="font-size: 14px">LiuYuYang</i></span>
-      </div>
-      <!-- https://www.baidu.com/s?wd=刘宇阳&cl=3 -->
     </div>
   </div>
 </template>
@@ -35,11 +18,26 @@
 <script>
 import Search from "@/components/Search";
 export default {
+  created() {
+    this.gradientTime()
+  },
   data() {
     return {
       value: "",
-      qq: 3311118881,
+      deg: 153
     };
+  },
+  methods:{
+    // 不断旋转达到渐变背景的效果
+    gradientTime(){
+      setInterval(()=>{
+        this.deg += 1
+
+        if(this.deg >= 360){
+          this.deg = 0
+        }
+      },50)
+    }
   },
   components: { Search },
 };
@@ -51,7 +49,9 @@ export default {
   .box {
     position: relative;
     height: 380px;
-    background-color: #fff;
+    // background-color: #4d87fd;
+    background-color: #0093e9;
+    background-size: 400% 400%;
     box-shadow: 0 1px 3px rgb(107 159 175 / 20%);
 
     // 信息
@@ -59,7 +59,7 @@ export default {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      margin-top: 45px;
+      margin-top: 75px;
       color: #fff;
       text-align: center;
       padding-left: 200px;

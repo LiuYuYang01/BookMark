@@ -23,7 +23,7 @@ export default {
 <style lang="less" scoped>
 .search {
   position: absolute;
-  top: 180px;
+  top: 210px;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
