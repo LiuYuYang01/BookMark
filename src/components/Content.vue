@@ -260,7 +260,7 @@ export default {
               width: 0%;
               height: 2px;
               border-radius: 5px;
-              background-color: #3698fd;
+              background-color: #727cf5;
               transition: all 0.3s;
             }
           }

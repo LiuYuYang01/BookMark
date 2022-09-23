@@ -20,7 +20,6 @@
 }
 
 body {
-    /* height: 3000px; */
     background-color: var(--body);
     transition: all 0.3s;
 }

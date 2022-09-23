@@ -6,12 +6,13 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
 -->
 
 <template>
+<div class="tool">
   <!-- 右侧工具栏 -->
-  <div class="tool">
+  <div class="box">
     <ul>
       <!-- 管理员登录 -->
       <el-tooltip class="item" effect="dark" content="管理员登录" placement="left">
-        <li @click="goLogin('/login')">
+        <li @click="n += 1">
           <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
             <use data-v-65af85a3="" xlink:href="#icon-yonghu1"></use>
           </svg>
@@ -27,7 +28,6 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
         </li>
       </el-tooltip>
       
-
       <!-- 搜索 -->
       <el-tooltip class="item" effect="dark" content="搜你喜欢" placement="left">
         <li>
@@ -47,9 +47,13 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
       </el-tooltip>
     </ul>
   </div>
+
+  <Popover :show="n"></Popover>
+</div>
 </template>
 
 <script>
+import Popover from '@/components/Popover'
 export default {
   created() {
     this.theme()
@@ -59,8 +63,10 @@ export default {
       root: document.querySelector(":root"),
       icon: "#icon-taiyang-copy-copy",
       template: {},
+      n:1
     };
   },
+  components:{Popover},
   methods: {
     //  昼夜切换
     isDayAndNight() {
@@ -153,16 +159,16 @@ export default {
         clearInterval(time);
       }
     },
-    // 跳转到登录页面
-    goLogin(path){
-      this.$router.push(path)
+    // 弹出登录框
+    Login(){
+      
     }
   }
 };
 </script>
 
 <style lang="less" scoped>
-.tool {
+.box {
   position: fixed;
   top: 60%;
   right: 40px;
