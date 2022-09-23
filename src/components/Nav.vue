@@ -1,3 +1,10 @@
+<!-- 
+Name：BookMark
+Author：刘宇阳
+GitHub：https://github.com/LiuYuYang01/BookMark
+describe：有些梦虽然遥不可及，但并不是不可能实现！
+-->
+
 <template>
   <!-- 侧边分类栏 -->
   <div class="nav" :style="{ width: navWidth }">

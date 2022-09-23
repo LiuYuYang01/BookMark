@@ -1,3 +1,8 @@
+// Name：BookMark
+// Author：刘宇阳
+// GitHub：https://github.com/LiuYuYang01/BookMark
+// describe：有些梦虽然遥不可及，但并不是不可能实现！
+
 // 导航列表
 export const list = {
     status: 200,
@@ -231,6 +236,13 @@ export const list = {
                     image: "https://s1.ax1x.com/2022/09/22/xFTXYF.png",
                     info: "Lodash 是一个一致性、模块化、高性能的 JavaScript 实用工具库。",
                     url: "https://www.lodashjs.com/"
+                },
+                {
+                    id: 18,
+                    title: "Vanta.js",
+                    image: "",
+                    info: "Vanta.js 只需几行代码，即可将3D动画数字艺术添加到任何网页中。",
+                    url: "https://www.vantajs.com/"
                 }
             ]
         },

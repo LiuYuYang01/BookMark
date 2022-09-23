@@ -1,3 +1,10 @@
+<!-- 
+Name：BookMark
+Author：刘宇阳
+GitHub：https://github.com/LiuYuYang01/BookMark
+describe：有些梦虽然遥不可及，但并不是不可能实现！
+ -->
+
 <template>
   <div class="banner">
     <!-- box -->
@@ -11,6 +18,9 @@
 
       <!-- 搜索框 -->
       <Search></Search>
+
+      <!-- 底部渐变 -->
+      <div class="gradient"></div>
     </div>
   </div>
 </template>
@@ -45,25 +55,25 @@ export default {
 
 <style lang="less">
 .banner {
+  position: relative;
+
   // 搜索框
   .box {
     position: relative;
     height: 380px;
-    // background-color: #4d87fd;
     background-color: #0093e9;
     background-size: 400% 400%;
-    box-shadow: 0 1px 3px rgb(107 159 175 / 20%);
 
     // 信息
     .text {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 75px;
-      color: #fff;
-      text-align: center;
-      padding-left: 200px;
-      transition: all 0.3s;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 75px;
+        color: #fff;
+        text-align: center;
+        padding-left: 200px;
+        transition: all 0.3s;
 
       h2 {
         font-size: 45px;
@@ -75,17 +85,26 @@ export default {
     }
 
     .avatar {
-      display: flex;
-      align-items: center;
-      position: absolute;
-      bottom: 40px;
-      right: 100px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        bottom: 40px;
+        right: 100px;
 
       span {
-        color: #333;
-        margin-left: 10px;
-        font-family: "黑体";
+          color: #333;
+          margin-left: 10px;
+          font-family: "黑体";
       }
+    }
+
+    // 背景渐变
+    .gradient{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to top, #f7f7f7, transparent);
     }
   }
 }
