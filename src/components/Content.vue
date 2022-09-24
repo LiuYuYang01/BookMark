@@ -151,7 +151,7 @@ export default {
 
 <style lang="less" scoped>
 .content {
-  width: 1250px;
+  // width: 1250px;
   padding: 0 10px 0 210px;
   margin: 0 auto;
   margin-top: 10px;
@@ -163,7 +163,7 @@ export default {
     .nav_title {
       height: 50px;
       line-height: 50px;
-      padding: 0 15px;
+      padding-left: 15px;
       margin-bottom: 10px;
       border-radius: 5px;
       border: 1px solid var(--nav_show_border);
@@ -191,10 +191,10 @@ export default {
     }
 
     .nav {
-      width: 300px;
+      width: 24.25%;
       height: 150px;
       padding: 15px;
-      margin: 0 16px 10px 0;
+      margin: 0 1% 10px 0;
       box-sizing: border-box;
       border-radius: 5px;
       border: 1px solid var(--nav_show_border);
@@ -251,6 +251,7 @@ export default {
             position: relative;
             color: var(--a);
             transition: all 0.3s;
+            word-break: break-word;
 
             &::after {
               content: "";

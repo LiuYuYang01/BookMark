@@ -54,7 +54,7 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
     </el-col>
 
     <!-- 展开 、 收起 -->
-    <div class="show" :style="{ left: showLeft }" @click="showBtn">
+    <div class="show" :style="{ left: showLeft }" @click="showBtn(isIcon === `el-icon-d-arrow-left`)">
       <el-button :icon="isIcon" circle></el-button>
     </div>
   </div>
@@ -66,6 +66,14 @@ import bus from "@/eventBus/eventBus";
 export default {
   created() {
     this.navList = navListAPI.data;
+    
+    // 拿到页面尺寸
+    window.onresize = ()=>{
+      this.resize = document.body.scrollWidth;
+    }
+  },
+  mounted(){
+    // this.showBtn(true,1)
   },
   data() {
     return {
@@ -73,6 +81,7 @@ export default {
       navWidth: "201px",
       showLeft: "210px",
       isIcon: "el-icon-d-arrow-left", //默认展开
+      resize:0
     };
   },
   methods: {
@@ -81,13 +90,13 @@ export default {
       bus.$emit("cateId", id);
     },
     // 点击展开 收起左侧分类栏
-    showBtn() {
-      const contentLeft =  document.querySelector('.content')
-      const toolLeft =  document.querySelector('.tool')
-      const searchLeft =  document.querySelector('.search')
-      const bannerLeft =  document.querySelector('.banner .box .text')
+    showBtn(parameter,tool) {
+      const contentLeft = document.querySelector(".content");
+      const toolLeft = document.querySelector(".tool .box");
+      const searchLeft = document.querySelector(".search");
+      const bannerLeft = document.querySelector(".banner .box .text");
       // 点击收起 再次点击则展开
-      if (this.isIcon === "el-icon-d-arrow-left") {
+      if (parameter) {
         // 切换到收起模式
         this.isIcon = "el-icon-d-arrow-right";
         // nav宽度改为0
@@ -96,26 +105,36 @@ export default {
         this.showLeft = "20px";
 
         // 分类栏如果被收起 就让页面整体往左边来点
-        bannerLeft.style.paddingLeft = "0"
-        searchLeft.style.paddingLeft = "0"
-        contentLeft.style.padding = "0 10px 0 0";
-        toolLeft.style.right = "90px";
+        bannerLeft.style.paddingLeft = "0";
+        searchLeft.style.paddingLeft = "0";
+        contentLeft.style.padding = "0 20px";
+
+        if(tool){
+          toolLeft.style.right = "20px";
+        }else{
+          toolLeft.style.right = "90px";
+        }
+
       } else {
         this.isIcon = "el-icon-d-arrow-left";
         this.navWidth = "201px";
         this.showLeft = "210px";
 
         // 分类栏如果被展开 就让页面整体还原
-        bannerLeft.style.paddingLeft = "200px"
-        searchLeft.style.paddingLeft = "200px"
-        contentLeft.style.padding = "0 10px 0 210px"
+        bannerLeft.style.paddingLeft = "200px";
+        searchLeft.style.paddingLeft = "200px";
+        contentLeft.style.padding = "0 10px 0 210px";
         toolLeft.style.right = "40px";
       }
-    },
+    }
   },
+  watch:{
+    resize(n){
+      this.showBtn(n <= 1100,1)
+    }
+  }
 };
 </script>
-
 <style lang="less" scoped>
 .nav {
   height: 100%;

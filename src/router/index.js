@@ -1,3 +1,8 @@
+// Name：BookMark
+// Author：刘宇阳
+// GitHub：https://github.com/LiuYuYang01/BookMark
+// describe：有些梦虽然遥不可及，但并不是不可能实现！
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/view/Home';

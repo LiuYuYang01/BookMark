@@ -1,0 +1,130 @@
+/* Name：BookMark
+Author：刘宇阳
+GitHub：https://github.com/LiuYuYang01/BookMark
+describe：有些梦虽然遥不可及，但并不是不可能实现！ */
+
+@media screen and (min-width: 1480px) {
+    .content {
+        width: 1250px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .search {
+        width: 70% !important;
+    }
+
+    .content .item .nav {
+        width: 32.65% !important;
+    }
+
+    .content .item .nav:nth-of-type(4n) {
+        margin-right: 1% !important;
+    }
+
+    .content .item .nav:nth-of-type(3n) {
+        margin-right: 0 !important;
+    }
+}
+
+@media screen and (max-width: 750px){
+    .search{
+        padding: 0 !important;
+    }
+    .banner .box .text{
+        padding: 0 !important;
+    }
+    .content{
+        padding: 0  20px !important;
+    }
+}
+
+@media screen and (max-width: 620px){
+    .banner .box{
+        height: 290px !important;
+    }
+
+    .banner .box .gradient{
+        height: 30px !important;
+    }
+
+    .banner .box .text{
+        margin-top: 45px !important;
+    }
+
+    .search{
+        top: 170px !important;
+        height: 30px !important;
+    }
+
+    .search input{
+        height: 30px !important;
+    }
+
+    .search span{
+        height: 29px !important;
+        line-height: 30px !important;
+    }
+
+    .content .item .nav .title div img{
+        width: 40px !important;
+        height: 40px !important;
+        margin-right: 10px !important;
+    }
+    
+    .content .item .nav .title div p{
+        font-size: 15px !important;
+    }
+
+    .content .item .nav .info p{
+        font-size: 14px !important;
+    }
+
+    .content .item .nav .title svg{
+        font-size: 30px !important;
+    }
+
+    .box ul li{
+        width: 30px !important;
+        height: 30px !important;
+        line-height: 30px !important;
+    }
+
+    .box ul li svg{
+        font-size: 16px !important;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .content{
+        padding: 0  10px !important;
+    }
+    .content .item .nav:nth-of-type(4n) {
+        margin-right: 1% !important;
+    }
+    .content .item .nav:nth-of-type(3n) {
+        margin-right: 1% !important;
+    }
+
+    .content .item .nav:nth-of-type(2n) {
+        margin-right: 0 !important;
+    }
+
+    .content .item .nav {
+        width: 49.5% !important;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .content .item .nav:nth-of-type(2n) {
+        margin-right: 1%;
+    }
+
+    .content .item .nav:nth-of-type(1n) {
+        margin-right: 0;
+    }
+
+    .content .item .nav {
+        width: 100% !important;
+    }
+}

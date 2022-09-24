@@ -13,7 +13,7 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
       <!-- 管理员登录 -->
       <el-tooltip class="item" effect="dark" :content="isLoginText" placement="left">
         <li @click="isLogin">
-          <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon icon16px">
             <use data-v-65af85a3="" :xlink:href="isLoginIcon"></use>
           </svg>
         </li>
@@ -22,7 +22,7 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
       <!-- 白天 昼夜切换 -->
       <el-tooltip class="item" effect="dark" :content="isDayAndNightText" placement="left">
         <li @click="isDayAndNight">
-          <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon icon16px">
             <use data-v-65af85a3="" :xlink:href="isDayAndNightIcon"></use>
           </svg>
         </li>
@@ -232,5 +232,8 @@ export default {
       cursor: pointer;
     }
   }
+}
+.icon16px{
+  font-size: 20px;
 }
 </style>
