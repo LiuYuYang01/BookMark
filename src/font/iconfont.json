@@ -6,18 +6,53 @@
   "description": "一个主页 整个世界！",
   "glyphs": [
     {
-      "icon_id": "18389309",
-      "name": "用户",
-      "font_class": "user-01",
-      "unicode": "e6dd",
-      "unicode_decimal": 59101
+      "icon_id": "21024496",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
     },
     {
-      "icon_id": "23099848",
-      "name": "用户",
-      "font_class": "yonghu",
-      "unicode": "e67a",
-      "unicode_decimal": 59002
+      "icon_id": "21816032",
+      "name": "系统设置",
+      "font_class": "xitongshezhi",
+      "unicode": "f5ae",
+      "unicode_decimal": 62894
+    },
+    {
+      "icon_id": "24111589",
+      "name": "设置",
+      "font_class": "shezhi1",
+      "unicode": "faed",
+      "unicode_decimal": 64237
+    },
+    {
+      "icon_id": "24859507",
+      "name": "设置-17",
+      "font_class": "shezhi-17",
+      "unicode": "e841",
+      "unicode_decimal": 59457
+    },
+    {
+      "icon_id": "25670494",
+      "name": "管理设置",
+      "font_class": "guanlishezhi",
+      "unicode": "fde5",
+      "unicode_decimal": 64997
+    },
+    {
+      "icon_id": "6880947",
+      "name": "退出",
+      "font_class": "tuichu",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    },
+    {
+      "icon_id": "8437998",
+      "name": "发现",
+      "font_class": "faxian",
+      "unicode": "e664",
+      "unicode_decimal": 58980
     },
     {
       "icon_id": "27804884",
@@ -25,13 +60,6 @@
       "font_class": "yonghu1",
       "unicode": "100ae",
       "unicode_decimal": 65710
-    },
-    {
-      "icon_id": "29776105",
-      "name": "头像",
-      "font_class": "touxiang",
-      "unicode": "e75f",
-      "unicode_decimal": 59231
     },
     {
       "icon_id": "11607863",

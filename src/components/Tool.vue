@@ -11,19 +11,19 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
   <div class="box">
     <ul>
       <!-- 管理员登录 -->
-      <el-tooltip class="item" effect="dark" content="管理员登录" placement="left">
-        <li @click="n += 1">
+      <el-tooltip class="item" effect="dark" :content="isLoginText" placement="left">
+        <li @click="isLogin">
           <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
-            <use data-v-65af85a3="" xlink:href="#icon-yonghu1"></use>
+            <use data-v-65af85a3="" :xlink:href="isLoginIcon"></use>
           </svg>
         </li>
       </el-tooltip>
 
       <!-- 白天 昼夜切换 -->
-      <el-tooltip class="item" effect="dark" content="太阳 昼夜模式切换" placement="left">
+      <el-tooltip class="item" effect="dark" :content="isDayAndNightText" placement="left">
         <li @click="isDayAndNight">
           <svg data-v-65af85a3="" aria-hidden="true" class="icon" style="font-size: 20px" >
-            <use data-v-65af85a3="" :xlink:href="icon"></use>
+            <use data-v-65af85a3="" :xlink:href="isDayAndNightIcon"></use>
           </svg>
         </li>
       </el-tooltip>
@@ -33,6 +33,15 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
         <li>
           <svg data-v-65af85a3="" aria-hidden="true" class="icon">
             <use data-v-65af85a3="" xlink:href="#icon-biaoqiankuozhan_sousuo-354" ></use>
+          </svg>
+        </li>
+      </el-tooltip>
+
+      <!-- 系统设置 -->
+      <el-tooltip class="item" effect="dark" content="全局设置" placement="left" v-show="isLoginShow">
+        <li>
+          <svg data-v-65af85a3="" aria-hidden="true" class="icon">
+            <use data-v-65af85a3="" xlink:href="#icon-shezhi-17"></use>
           </svg>
         </li>
       </el-tooltip>
@@ -48,7 +57,7 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
     </ul>
   </div>
 
-  <Popover :show="n"></Popover>
+  <Popover></Popover>
 </div>
 </template>
 
@@ -57,26 +66,33 @@ import Popover from '@/components/Popover'
 export default {
   created() {
     this.theme()
+    this.login()
   },
   data() {
     return {
       root: document.querySelector(":root"),
-      icon: "#icon-taiyang-copy-copy",
-      template: {},
-      n:1
+      template: JSON.parse(localStorage.getItem("theme")) || {},
+      isDayAndNightIcon: "#icon-taiyang-copy-copy",
+      isDayAndNightText:"切换昼夜模式",
+      isLoginIcon:"#icon-yonghu1",
+      isLoginText:"登录",
+      isLoginShow:false,
+      isLoginState: JSON.parse(localStorage.getItem('isLoginState')) || {}
     };
   },
   components:{Popover},
   methods: {
     //  昼夜切换
     isDayAndNight() {
-      if (this.icon === "#icon-taiyang-copy-copy") {
+      if (this.isDayAndNightIcon === "#icon-taiyang-copy-copy") {
         // 切换到昼夜模式
-        this.icon = "#icon-icon_yejianqingtian";
+        this.isDayAndNightIcon = "#icon-icon_yejianqingtian";
+        this.isDayAndNightText = "切换太阳模式";
 
         // 昼夜主题
         this.template = {
-          state:"#icon-icon_yejianqingtian",
+          isDayAndNightIcon:"#icon-icon_yejianqingtian",
+          isDayAndNightText:"切换太阳模式",
           body: "#151617",
           body_a: "#1d1f20",
           a: "#fff",
@@ -89,14 +105,15 @@ export default {
 
         // 持久化到本地存储
         localStorage.setItem("theme", JSON.stringify(this.template));
-        console.log('2',JSON.parse(localStorage.getItem("theme")) || {});
       } else {
         // 切换到太阳模式
-        this.icon = "#icon-taiyang-copy-copy";
+        this.isDayAndNightIcon = "#icon-taiyang-copy-copy";
+        this.isDayAndNightText = "切换昼夜模式";
 
         // 太阳主题
         this.template = {
-          state:"#icon-taiyang-copy-copy",
+          isDayAndNightIcon:"#icon-taiyang-copy-copy",
+          isDayAndNightText:"切换昼夜模式",
           body: "#f7f7f7",
           body_a: "#fff",
           a: "#333",
@@ -108,7 +125,6 @@ export default {
         };
 
         localStorage.setItem("theme", JSON.stringify(this.template));
-        console.log('3',JSON.parse(localStorage.getItem("theme")) || {});
       }
 
       // 主题切换
@@ -123,11 +139,10 @@ export default {
     },
     // 记录上一次是白天 还是 黑夜状态
     theme(){
-      this.template = JSON.parse(localStorage.getItem("theme")) || {};
-  
       // 记录上一次是白天 还是 黑夜状态
-      if(this.template.state){
-        this.icon = this.template.state
+      if(this.template.isDayAndNightIcon){
+        this.isDayAndNightIcon = this.template.isDayAndNightIcon
+        this.isDayAndNightText = this.template.isDayAndNightText
 
         this.root.style.setProperty("--body", this.template.body);
         this.root.style.setProperty("--body_a", this.template.body_a);
@@ -159,9 +174,35 @@ export default {
         clearInterval(time);
       }
     },
-    // 弹出登录框
-    Login(){
-      
+    // 判断是否登录成功
+    isLogin(){
+      if(this.isLoginIcon === "#icon-yonghu1"){
+        this.isLoginIcon = "#icon-tuichu";
+        this.isLoginText = "退出";
+        this.isLoginShow = true
+
+        this.isLoginState.isLoginIcon = "#icon-tuichu";
+        this.isLoginState.isLoginText = "退出";
+        this.isLoginState.isLoginShow = true;
+      }else{
+        this.isLoginIcon = "#icon-yonghu1";
+        this.isLoginText = "登录";
+        this.isLoginShow = false
+
+        this.isLoginState.isLoginIcon = "#icon-yonghu1";
+        this.isLoginState.isLoginText = "登录";
+        this.isLoginState.isLoginShow = false;
+      }
+      localStorage.setItem('isLoginState',JSON.stringify(this.isLoginState))
+      console.log(JSON.parse(localStorage.getItem('isLoginState')) || {});
+    },
+    // 记录上一次是登录 还是 退出状态
+    login(){
+      if(this.isLoginState.isLoginIcon){
+        this.isLoginIcon = this.isLoginState.isLoginIcon;
+        this.isLoginText = this.isLoginState.isLoginText;
+        this.isLoginShow = this.isLoginState.isLoginShow;
+      }
     }
   }
 };
