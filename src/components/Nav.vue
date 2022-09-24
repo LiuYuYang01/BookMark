@@ -53,6 +53,9 @@ describe：有些梦虽然遥不可及，但并不是不可能实现！
       </el-menu>
     </el-col>
 
+    <!-- 遮罩层 -->
+    <div class="mask" :style="{display:maskDisplay}"></div>
+
     <!-- 展开 、 收起 -->
     <div class="show" :style="{ left: showLeft }" @click="showBtn(isIcon === `el-icon-d-arrow-left`)">
       <el-button :icon="isIcon" circle></el-button>
@@ -73,7 +76,11 @@ export default {
     }
   },
   mounted(){
-    // this.showBtn(true,1)
+    if(document.body.scrollWidth > 1100){
+      this.showBtn(false)
+    }else{
+      this.showBtn(true)
+    }
   },
   data() {
     return {
@@ -81,7 +88,8 @@ export default {
       navWidth: "201px",
       showLeft: "210px",
       isIcon: "el-icon-d-arrow-left", //默认展开
-      resize:0
+      resize:0,
+      maskDisplay:"none"
     };
   },
   methods: {
@@ -90,13 +98,14 @@ export default {
       bus.$emit("cateId", id);
     },
     // 点击展开 收起左侧分类栏
-    showBtn(parameter,tool) {
+    showBtn(parameter) {
       const contentLeft = document.querySelector(".content");
       const toolLeft = document.querySelector(".tool .box");
       const searchLeft = document.querySelector(".search");
       const bannerLeft = document.querySelector(".banner .box .text");
       // 点击收起 再次点击则展开
       if (parameter) {
+        console.log('收起');
         // 切换到收起模式
         this.isIcon = "el-icon-d-arrow-right";
         // nav宽度改为0
@@ -108,14 +117,18 @@ export default {
         bannerLeft.style.paddingLeft = "0";
         searchLeft.style.paddingLeft = "0";
         contentLeft.style.padding = "0 20px";
-
-        if(tool){
-          toolLeft.style.right = "20px";
+        
+        if(document.body.scrollWidth > 1450){
+            toolLeft.style.right = "90px";
         }else{
-          toolLeft.style.right = "90px";
+            toolLeft.style.right = "40px";
         }
 
+        if(document.body.scrollWidth < 600){
+          this.maskDisplay = "none"
+        }
       } else {
+        console.log('展开');
         this.isIcon = "el-icon-d-arrow-left";
         this.navWidth = "201px";
         this.showLeft = "210px";
@@ -125,12 +138,16 @@ export default {
         searchLeft.style.paddingLeft = "200px";
         contentLeft.style.padding = "0 10px 0 210px";
         toolLeft.style.right = "40px";
+
+        if(document.body.scrollWidth < 600){
+          this.maskDisplay = "block"
+        }
       }
     }
   },
   watch:{
     resize(n){
-      this.showBtn(n <= 1100,1)
+      this.showBtn(n <= 1100)
     }
   }
 };
@@ -197,6 +214,13 @@ export default {
   // 鼠标经过二级级分类修改背景颜色
   .el-menu-item:hover {
     background-color: var(--nav_hover) !important;
+  }
+
+  .mask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
   }
 
   // 展开 收起按钮

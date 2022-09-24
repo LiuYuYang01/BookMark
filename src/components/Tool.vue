@@ -194,7 +194,6 @@ export default {
         this.isLoginState.isLoginShow = false;
       }
       localStorage.setItem('isLoginState',JSON.stringify(this.isLoginState))
-      console.log(JSON.parse(localStorage.getItem('isLoginState')) || {});
     },
     // 记录上一次是登录 还是 退出状态
     login(){
