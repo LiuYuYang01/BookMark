@@ -2,9 +2,7 @@
 一个主页 整个世界!
 
 <b>项目演示：</b> http://nav.liuyuyang.net/#/home
-
-[![xEKk4I.png](https://s1.ax1x.com/2022/09/25/xEKk4I.png)](https://imgse.com/i/xEKk4I)
-[![xEKk4I1.png](https://s1.ax1x.com/2023/03/28/pp6mWsU.jpg)](https://s1.ax1x.com/2023/03/28/pp6mWsU.jpg)
+[![https://s1.ax1x.com/2023/03/28/pp6mWsU.jpg](https://s1.ax1x.com/2023/03/28/pp6mWsU.jpg)](https://s1.ax1x.com/2023/03/28/pp6mWsU.jpg)
 
 
 <b>项目介绍</b>
@@ -19,11 +17,15 @@
 
 [![xEK9De.png](https://s1.ax1x.com/2022/09/25/xEK9De.png)](https://imgse.com/i/xEK9De)
 
+**安装项目**
+```bash
+npm i
+```
+
 **运行项目**
 
 ```bash
 npm serve
-// or
-yarn serve
 ```
 
+[![xEKk4I.png](https://s1.ax1x.com/2022/09/25/xEKk4I.png)](https://imgse.com/i/xEKk4I)
