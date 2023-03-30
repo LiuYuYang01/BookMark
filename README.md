@@ -30,3 +30,5 @@ npm serve
 ```
 
 [![xEKk4I.png](https://s1.ax1x.com/2022/09/25/xEKk4I.png)](https://imgse.com/i/xEKk4I)
+
+[![Page Views Count](https://badges.toozhao.com/badges/01GWS05X5388QNS4SC0BD2KWC4/green.svg)](https://badges.toozhao.com/stats/01GWS05X5388QNS4SC0BD2KWC4 "Get your own page views count badge on badges.toozhao.com")
